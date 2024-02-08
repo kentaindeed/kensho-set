@@ -1,0 +1,41 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+Vagrant.configure("2") do |config|
+ 
+    #config.vm.box = "bento/almalinux-9"
+  
+    config.ssh.insert_key = false
+  
+    if Vagrant.has_plugin?("vagrant-vbguest")
+      config.vbguest.auto_update = false
+    end
+  
+  
+   config.vm.define "host" do |node|
+      node.vm.provider "virtualbox" do |vm|
+      vm.name = "host"
+      vm.customize ["modifyvm", :id, "--memory", "4800"]
+   end
+  
+      node.vm.box = "bento/almalinux-9"
+      node.vm.hostname="host"
+      node.vm.network :private_network, ip: "192.168.50.10"
+    end
+  
+    config.vm.define "slave" do |node|
+    node.vm.provider "virtualbox" do |vm|
+    
+      vm.name = "slave"
+      vm.customize ["modifyvm", :id, "--memory", "4800"]
+     end
+  
+    node.vm.name ="slave"
+    node.vm.box = "bento/almalinux-9" 
+    node.vm.network :private_network, ip: "192.168.50.20"
+    end
+  
+  
+  end
+  
