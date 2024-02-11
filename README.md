@@ -1,0 +1,1 @@
+alam linux 8 のvagrant 検証用のvagrantfile
