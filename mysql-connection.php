@@ -5,27 +5,27 @@
 #変数定義
 #-----------------------------------------------------------------------------
 
+//hostname 
+define("HOSTNAME", "your_database_hostname");
 
-define("HOSTNAME", "localhost");
-
-// データベースサーバ ポート番号(省略可)
+// port
 define("DB_PORT","3306");
 
-// データベースサーバ ユーザ名
+// username
 define("USERNAME","root");
 
-// データベースサーバ パスワード
-define("PASSWORD","(at{%9ZATCI");
+// password
+define("PASSWORD","your_password");
 
-// データベースサーバ データベース名
-define("DATABASE","root");
+// database name
+define("DATABASE","your_database");
 
 
 try {
 
    $dbconnect = new PDO('mysql:host='. HOSTNAME . ';dbname=' . DATABASE, USERNAME, PASSWORD);
 
-   $msg = "there is no problem connecting with mysql";
+   $msg = "MySQL への接続に成功しました";
 
 } catch(PDOException $e){
 
