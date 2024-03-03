@@ -14,6 +14,32 @@ curl localhost
 
 # php install
 
+```powershell
+# amazon linux extras
+sudo amazon-linux-extras install php8.2
+php -v
+
+# package install
+ yum install php-cli php-mbstring php-gd php-intl php-xml
+
+# test
+cd /var/www/html/
+touch phpinfo.php
+vim phpinfo.php
+
+```php
+<?php
+phpinfo();
+?>
+```
+
+# start
+systemctl start php-fpm.service
+systemctl status php-fpm.service
+
+```
+
+
 
 # mysql install
 
